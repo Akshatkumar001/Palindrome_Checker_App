@@ -21,6 +21,8 @@
  * @author Developer
  * @version 1.0
  */
+import java.util.Scanner;
+
 
 public class PalindromeCheckerApp {
       /**
@@ -32,11 +34,35 @@ public class PalindromeCheckerApp {
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Welcome to the Palindrome Checker Management System");
         
         System.out.println("Version : 1.0");
 
         
         System.out.println("System initialized successfully.");
+
+        System.out.print("input text: ");
+        String input = scanner.nextLine();
+
+         input = input.replaceAll("\\s+", "").toLowerCase();
+
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < input.length() / 2; i++) {
+
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+         if (isPalindrome) {
+            System.out.println("is It a Palindrome? true");
+        } else {
+            System.out.println("is It a Palindrome? false");
+        }
+        scanner.close();
     }
 }
