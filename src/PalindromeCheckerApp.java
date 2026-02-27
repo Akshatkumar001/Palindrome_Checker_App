@@ -1,78 +1,37 @@
-/**
- * ============================================================
- * MAIN CLASS - UseCase1PalindromeCheckerApp
- * ============================================================
- *
- * Use Case 1: Application Entry & Welcome Message
- *
- * Description:
- * This class represents the entry point of the
- * Palindrome Checker Management System.
- *
- * At this stage, the application:
- * - Starts execution from the main() method
- * - Displays a welcome message
- * - Shows application version
- *
- * No palindrome logic is implemented yet.
- *
- * The goal is to establish a clear startup flow.
- *
- * @author Developer
- * @version 1.0
- */
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Stack;
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
 
+import java.util.ArrayDeque;
+import java.util.Scanner;
 
 public class PalindromeCheckerApp {
-      /**
-     * Application entry point.
-     *
-     * This is the first method executed by the JVM
-     * when the program starts.
-     *
-     * @param args Command-line arguments
-     */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
+    public static void main(String[] var0) {
+        Scanner var1 = new Scanner(System.in);
         System.out.println("Welcome to the Palindrome Checker Management System");
-        
         System.out.println("Version : 1.0");
-
-        
         System.out.println("System initialized successfully.");
+        String var2 = "refer";
+        ArrayDeque var3 = new ArrayDeque();
 
-        String input = "civic";
-
-        Queue<Character> queue = new LinkedList<>();
-
-        Stack<Character> stack = new Stack<>();
-
-        
-        for (char c : input.toCharArray()) {
-            stack.push(c);
-            queue.offer(c);
+        for (char var7 : var2.toCharArray()) {
+            var3.add(var7);
         }
 
-        boolean isPalindrome = true;
+        boolean var8 = true;
 
-        while (!queue.isEmpty()) {
-
-            char poppedChar = stack.pop();
-
-            char c = queue.poll();
-
-            if (c != poppedChar) {
-                isPalindrome = false;
+        while (!var3.isEmpty() && var3.size() != 1) {
+            char var9 = (Character) var3.removeFirst();
+            char var10 = (Character) var3.removeLast();
+            if (var9 != var10) {
+                var8 = false;
                 break;
             }
         }
 
-        System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + isPalindrome);
+        System.out.println("Input : " + var2);
+        System.out.println("Is Palindrome? : " + var8);
+        var1.close();
     }
 }
