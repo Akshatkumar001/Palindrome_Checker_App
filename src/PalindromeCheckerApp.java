@@ -21,6 +21,8 @@
  * @author Developer
  * @version 1.0
  */
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -44,24 +46,26 @@ public class PalindromeCheckerApp {
         
         System.out.println("System initialized successfully.");
 
-        String input = "noon";
+        String input = "civic";
+
+        Queue<Character> queue = new LinkedList<>();
 
         Stack<Character> stack = new Stack<>();
 
+        
         for (char c : input.toCharArray()) {
             stack.push(c);
+            queue.offer(c);
         }
 
-        // Assume palindrome initially
         boolean isPalindrome = true;
 
-        // Iterate again through original string
-        for (char c : input.toCharArray()) {
+        while (!queue.isEmpty()) {
 
-            // Pop character from stack
             char poppedChar = stack.pop();
 
-            // Compare characters
+            char c = queue.poll();
+
             if (c != poppedChar) {
                 isPalindrome = false;
                 break;
