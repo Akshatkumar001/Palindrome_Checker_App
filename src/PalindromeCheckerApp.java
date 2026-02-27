@@ -22,6 +22,7 @@
  * @version 1.0
  */
 import java.util.Scanner;
+import java.util.Stack;
 
 
 public class PalindromeCheckerApp {
@@ -43,25 +44,28 @@ public class PalindromeCheckerApp {
         
         System.out.println("System initialized successfully.");
 
-        String input = "radar";
+        String input = "noon";
 
-        char[] chars = input.toCharArray();
+        Stack<Character> stack = new Stack<>();
 
-        int start = 0;
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+        }
 
-        int end = chars.length - 1;
-
+        // Assume palindrome initially
         boolean isPalindrome = true;
 
-        while (start < end) {
+        // Iterate again through original string
+        for (char c : input.toCharArray()) {
 
-            if (chars[start] != chars[end]) {
+            // Pop character from stack
+            char poppedChar = stack.pop();
+
+            // Compare characters
+            if (c != poppedChar) {
                 isPalindrome = false;
                 break;
             }
-
-            start++;
-            end--;
         }
 
         System.out.println("Input : " + input);
