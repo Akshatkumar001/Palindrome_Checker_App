@@ -43,25 +43,28 @@ public class PalindromeCheckerApp {
         
         System.out.println("System initialized successfully.");
 
-        System.out.print("input text: ");
-        String input = scanner.nextLine();
+        String input = "radar";
 
-         input = input.replaceAll("\\s+", "").toLowerCase();
+        char[] chars = input.toCharArray();
 
-        String reversed = "";
+        int start = 0;
 
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        int end = chars.length - 1;
+
+        boolean isPalindrome = true;
+
+        while (start < end) {
+
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
         }
 
-        if (input.equals(reversed)) {
-            System.out.println("is It a Palindrome? true");
-        } else {
-            System.out.println("is It a Palindrome? false");
-        }
-
-        System.out.println("System initialized successfully.");
-
-        scanner.close();
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
